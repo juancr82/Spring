@@ -5,6 +5,10 @@
  * For more details take a look at the Java Libraries chapter in the Gradle
  * user guide available at https://docs.gradle.org/3.5/userguide/java_library_plugin.html
  */
+ 
+plugins {
+    id 'org.springframework.boot' version '1.5.3.RELEASE'
+}
 
 // Apply the java-library plugin to add support for Java Library
 apply plugin: 'java-library'
@@ -17,6 +21,9 @@ repositories {
 }
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web:1.5.3.RELEASE")
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.thymeleaf:thymeleaf-spring4")
+    compile("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect")
+    testCompile("org.springframework.boot:spring-boot-starter-test")
 }
 
