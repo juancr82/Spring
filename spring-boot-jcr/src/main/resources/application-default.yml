@@ -1,0 +1,9 @@
+management:
+    security:
+        enabled: false
+server:
+    port: 8081
+my:
+   servers:
+       - Default properties
+       - foo.bar.com
