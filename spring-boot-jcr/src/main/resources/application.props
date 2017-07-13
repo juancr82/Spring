@@ -1,0 +1,5 @@
+server.port=8081
+management.security.enabled=false
+name=Paula
+#spring.devtools.restart.additional-paths=.
+#spring.devtools.restart.exclude=test.prop

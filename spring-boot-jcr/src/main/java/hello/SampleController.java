@@ -1,19 +1,32 @@
 package hello;
 
-import org.springframework.boot.*;
-import org.springframework.boot.autoconfigure.*;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.Banner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import hello.service.HelloWorldService;
 
 @RestController
-@EnableAutoConfiguration
+//@Configuration
+//@EnableAutoConfiguration
+//@ComponentScan
+@SpringBootApplication //This annotation is equivalent to use the 3 previous ones with their default attributes. 
 public class SampleController {
+	
+	@Autowired
+	private HelloWorldService helloWorldService;
 
     @RequestMapping("/")
     String home() {
-        return "Hello World!";
+        return "Hello World! - " + helloWorldService.getHelloMessage();
     }
 
     public static void main(String[] args) throws Exception {
-        SpringApplication.run(SampleController.class, args);
+    	SpringApplication app = new SpringApplication(SampleController.class);
+    	//app.setBannerMode(Banner.Mode.OFF);
+        app.run(args);
     }
 }
